@@ -43,6 +43,7 @@ class logstash::config {
     file { "${logstash::configdir}/conf.d":
       ensure  => directory,
       require => File[$logstash::configdir],
+      purge   => $logstash::purge_configdir,
     }
 
     file_concat { 'ls-config':
